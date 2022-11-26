@@ -1,0 +1,4 @@
+#+title: Coq Formalization of Krivine Abstract Machine
+
+* Syntax
+Terms : ~M, N ::= x | λx.M | M N~
