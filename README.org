@@ -1,6 +1,13 @@
-#+title: Coq Formalization of Krivine Abstract Machine for Untyped Lambda Calculus
+#+title: Coq Formalization of Krivine Abstract Machine (KAM)
 
 * Syntax
-Terms : ~M, N ::= x | λx.M | M N~
-Environments : ~E ::= ∅ | E[x ↦ c]~
-Closure : ~c ::= (M, E)~
+- Terms : ~M, N ::= x | λx.M | M N~
+- Environments : ~E ::= ∅ | E[x ↦ c]~
+- Closure : ~c ::= (M, E)~
+
+A configuration of the KAM is a triple ~(M, E, S)~ where ~M~ is a term, ~E~ is an environment, and ~S~ is a /stack/.
+
+* KAM Transitions
+- ~(λx.M, E, c · S) → (M, E[x ↦ c], S)~
+- ~(M N, E, S) → (M, E, (N, E) · S)~
+- ~(x, E, S) → (M, E', S) where (M, E') ≃ E(x)~
