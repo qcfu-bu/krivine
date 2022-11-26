@@ -3,7 +3,7 @@
 * Syntax
 - Terms : ~M, N ::= x | λx.M | M N~
 - Environments : ~E ::= ∅ | E[x ↦ c]~
-- Closure : ~c ::= (M, E)~
+- Closures : ~c ::= (M, E)~
 
 A configuration of the KAM is a triple ~(M, E, S)~ where ~M~ is a term, ~E~ is an environment, and ~S~ is a /stack/.
 
