@@ -51,15 +51,10 @@ Ltac step_simpl1 :=
   end.
 Ltac step_simpl := repeat (progress step_simpl1).
 Ltac step_solve :=
-  repeat
-    (eauto;
-     match goal with
-     | [ |- sred (App (Lam _) _) _ ] =>
-         eapply star_trans;[apply star1; apply step_beta|asimpl]
-     | [ |- sred (App _ _) _ ] =>
-         eapply star_trans;[apply star1; apply step_app; step_simpl|asimpl]
-     | [ |- sred _ _ ] => eauto
-     end).
+  repeat (eauto; match goal with
+                 | [ |- sred _ _ ] =>
+                     eapply star_trans;[apply star1; step_simpl|asimpl]
+                 end).
 
 Ltac kam_simpl := try eapply star_trans; [eapply star1; solve[constructor; asimpl; eauto]|asimpl].
 Ltac kam_solve := repeat progress (kam_simpl; eauto).
