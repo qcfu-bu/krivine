@@ -1,4 +1,6 @@
-#+title: Coq Formalization of Krivine Abstract Machine
+#+title: Coq Formalization of Krivine Abstract Machine for Untyped Lambda Calculus
 
 * Syntax
 Terms : ~M, N ::= x | λx.M | M N~
+Environments : ~E ::= ∅ | E[x ↦ c]~
+Closure : ~c ::= (M, E)~
